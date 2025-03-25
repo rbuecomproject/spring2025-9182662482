@@ -1,0 +1,11 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<bean id="c" class="web.RegController" scope="prototype"></bean>
+	<bean id="s" class="service.RegService" scope="prototype"></bean>
+	<bean id="r" class="repo.RegRepo" scope="singleton"></bean>
+	<bean id="v" class="util.ValidationUtil" scope="singleton"></bean>
+
+</beans>
