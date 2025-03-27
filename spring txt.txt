@@ -1,0 +1,162 @@
+SpringCore:
+----------
+1. how to create object?
+ if it is simple java approach:
+ ex:
+type1: Student st=new Student();
+
+type2: 
+Student st=(Student)Class.forName("Student").newInstance();
+this approach enables runtime polymorphsm
+class Phone{
+type1:
+JioSim jiosim=new JioSim();
+call(){}
+sendSms(){}
+connectInternet(){}
+}
+
+
+class Phone{
+
+JioSim jiosim=new JioSim();
+call(){}
+sendSms(){}
+connectInternet(){}
+}
+
+interface SIM{
+call();
+sendSms();
+connectInternet();
+}
+
+class JioSIm impl SIM{
+call(){}
+sendSms(){}
+connectInternet(){}
+}
+
+class AitTell impl SIM{
+call(){}
+sendSms(){}
+connectInternet(){}
+}
+
+class VISim impl SIM{
+call(){}
+sendSms(){}
+connectInternet(){}
+}
+
+======================================================
+run time options you can pass while starting/retstarting your application
+args[0]=JioSim->retstart,AirTell->retstart,ViSim->retstart,BSNLSim->retstart
+class Phone{
+SIM sim=(SIM)Class.forName(args[0]).newInstance();
+call(){}
+sendSms(){}
+connectInternet(){}
+}
+
+
+
+// in case if you want change sim you have to make changes in phone class also
+
+
+========================================================================
+oracle: url,user,pass
+
+args[0]->OracleDriver(u,u,p),->MySQLDriver(u,u,p),->DB2Driver((u,u,p),
+->SQLServerDriver(u,u,p)
+
+
+
+class ProductsDao{
+Class.forName("args[0]");
+Connection con=DriverManager.getConnection("url","user","pwd");
+save(){}
+update(){}
+delete(){}
+}
+// in feature if you want to change code oracle to mysql , you have to edit your classes and need to make somenecessary changes 
+=========================================================================
+
+ 
+2. what is springbean?
+--------------------------
+SpringFramework came up with self container called(IOC)
+IOC( invertion of control)
+
+Frameworks without selfcontainers:
+---------------------------------
+servlets(API) => Tomcat
+Struts => Tomcat
+JSF    => Tomcat
+Vicket => Tomcat
+EJB    => Weblogic,Jbose
+------------------------------------------------------
+Frameworks with selfcontainers:
+--------------------------------
+1)Hibernate(jars)        => Configuration(XML),AnnotationConfiguration(@)
+@Entity(DB tables)
+Session.save(entity)
+Session.update(entity)
+
+2) Spring    => All classes created by Developper to implement any usecase in spring you call springbeans
+			
+             => BeanFactory(XML)  core
+			 => ApplicationContext(xml,@) non-web
+			 => WebApplicationContext(xml,@) web/ spring mvc, springboot mvc,
+			 reactive webflux
+
+Controller
+Service
+Dao
+ValidationHelpers
+Configuration
+ => DB
+ => RT
+ => etc....
+
+3. what is springcontainer?
+=========================================================================
+
+SpringBoot: 
+if web
+WebApplicationContext
+if not web
+ApplicationContext
+------------------------------------------------------------
+non-boot:
+step1: create java project in eclips / create dynamic webapp
+step2: add dependency lib's  ( springbeans.jar,springcore.jar,commons-logging.jar,springcontext.jar,springweb.jar)
+step3: create springbeans(Controller,Services,Repo, many configuration)
+step4: add all beans into xml
+step5: load xml into container
+
+boot:
+step1: create a springboot project in STS, add all required dependencies
+ from selection pannel (non-web/web)
+step2: create springbeans(Controller,Services,Repo-JPA)-Auto configuration
+step3: @SpringBootApplication/SpringAPplication.run();
+ 
+-----------------------------------------------------------
+Dependency Injection:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
